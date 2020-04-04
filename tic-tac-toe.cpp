@@ -1,7 +1,7 @@
 #include"tic-tac-toe.h"
 
 TicTacToeGame::TicTacToeGame() {
-	setDimissions(15,5);
+	setDimissions(15,15);
 	setWinNum(3);
 	initGamePieces();
 }
@@ -9,6 +9,15 @@ TicTacToeGame::TicTacToeGame() {
 int TicTacToeGame::getGameNums() {
 	return (piecesNum);
 }
+int TicTacToeGame::area() {
+	cout << NUM_ARGS << endl;
+	cout << *this << endl;
+	return 11;
+}
+//void TicTacToeGame::print() {
+//	//cout <<*this<<endl; 
+//	cout << NUM_ARGS << endl;
+//}
 //
 
 

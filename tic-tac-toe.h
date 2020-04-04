@@ -13,6 +13,7 @@ public:
 //	int prompt(unsigned int& x, unsigned int& y);
 //	int turn();
 //	int play();
+	int area();
 private:
 	
 

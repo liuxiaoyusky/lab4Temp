@@ -3,10 +3,11 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <iomanip>
 #include "gamePieces.h"
 using namespace std;
 
-
+#define NUM_ARGS 2							// number of arguments required for default game
 
 
 
@@ -21,7 +22,7 @@ protected:
 	string player1 = "Player X: ";				//history moves of player1
 	string player2 = "Player O: ";				//history moves of player2
 
-	Game();
+	//Game();
 	void setDimissions(int row, int column);
 	void setWinNum(unsigned int num);
 	void initGamePieces();
@@ -36,6 +37,12 @@ protected:
 	bool checkMoves();
 	string colorEnumToString(int enumPiece_color);
 
+	//virtual int area(void) = 0;
+	//void print(void)
+	//{
+	//	cout << this->area() << endl;
+	//}
+
 public:
 	bool auto_play;
 	int auto_player(unsigned int& x, unsigned int& y);
@@ -44,4 +51,12 @@ public:
 	int prompt(unsigned int& x, unsigned int& y, vector <unsigned int>& step);
 	int turn(vector <unsigned int>& step);
 	int play();
+	static Game* chooseGame(int argc, char* argv[]);
+	void print();
+	virtual int area() = 0;
+	int width, height;
+	void set_values(int a, int b)
+	{
+		width = a; height = b;
+	}
 };

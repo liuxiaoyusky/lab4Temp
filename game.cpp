@@ -3,8 +3,8 @@ using namespace std;
 
 // Base class
 
-Game::Game() {
-}
+//Game::Game() {
+//}
 
 void Game ::setDimissions(int row, int column) {
 	rows = row;
@@ -337,7 +337,8 @@ int  Game::turn(vector <unsigned int>& step) {
 				game_pieces[index].name = pieceType;
 
 				//print the board and update history
-				cout << *this << endl;
+				/*cout << *this << endl;*/
+				this -> print();
 				if (player == 1) {
 					ostringstream add_on;
 					add_on << row << "," << column << "; ";
@@ -364,12 +365,13 @@ int  Game::turn(vector <unsigned int>& step) {
 }
 
 int Game::play() {
-	cout << *this << endl;
+	//cout << *this << endl;
+	this -> print();
 	int ans = return_values::gaming;
 	vector <unsigned int> step{ 0,0 };
 	while (ans == return_values::gaming) {
-		cout << "step[0]  " << step[0] << endl;
-		cout << "step[1]  " << step[1] << endl;
+		//cout << "step[0]  " << step[0] << endl;
+		//cout << "step[1]  " << step[1] << endl;
 
 		//check quit
 		if (turn(step) == return_values::quit) {
@@ -400,18 +402,18 @@ ostream& operator<<(ostream& out, const Game& game) {
 	out << "\n";
 	unsigned int curLineNum = 0;
 	for (unsigned int i = 0; i < game.piecesNum; i += game.columns) {
-		out << (game.rows - 1 - curLineNum);
+		out << setw(2)<< (game.rows - 1 - curLineNum);
 		for (unsigned int j = 0; j < game.columns; j++) {
-			out << " " << game.game_pieces[i + j].display;
+			out <<  " "<< setw(2) << game.game_pieces[i + j].display;
 		}
-		out << endl;
+		out << "\n"<< endl;
 		curLineNum++;
 	}
 
 	//coordinate at bottom
-	out << " ";
+	out << "  ";
 	for (unsigned int i = 0; i < game.columns; i++) {
-		out << " " << i;
+		out << " " << setw(2) << i;
 	}
 
 	out << "\n";
@@ -419,7 +421,12 @@ ostream& operator<<(ostream& out, const Game& game) {
 	return out;
 }
 
-
+void Game::print() {
+	//cout << *this << endl;
+	//cout << this ->piecesNum << endl;
+	cout << this->area() << endl;
+}
+//virtual void Game::print = 0;
 
 
 //int Game::checkWinRows(unsigned int row) {
