@@ -153,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
+    <ClInclude Include="gamePieces.h" />
     <ClInclude Include="lab4.h" />
     <ClInclude Include="tic-tac-toe.h" />
   </ItemGroup>

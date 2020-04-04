@@ -1,82 +1,19 @@
 #include"tic-tac-toe.h"
 
-TicTacToeGame::TicTacToeGame():height(3) {
-
+TicTacToeGame::TicTacToeGame() {
+	setDimissions(15,5);
+	setWinNum(3);
+	initGamePieces();
 }
 
 int TicTacToeGame::getGameNums() {
-	return (rows * columns*height);
+	return (piecesNum);
 }
 //
-//TicTacToeGame::TicTacToeGame()
-////constructor
-//	:columns(5), rows(5), piecesNum(25),auto_play(false)
-//{
-//	//make inner 9 boxs are nocolor, outter 16 boxes are empty and keep empty 
-//	for (unsigned int i = 0; i < piecesNum; i++) {
-//		gamePiece nullPiece;
-//		if (i <= (columns - 1) || i >= (piecesNum - columns) || i % columns == 0 || i % columns == (columns - 1)) {
-//			nullPiece.color = piece_color::empty;
-//		}
-//		else {
-//			nullPiece.color = piece_color::noColor;
-//		}
-//		nullPiece.display = " ";
-//		game_pieces.push_back(nullPiece);
-//	}
-//}
+
+
 //
-//	int TicTacToeGame::checkWinRows(unsigned int row) {
-//		unsigned int cur = (rows - row-1)*columns+1;
-//		piece_color color = game_pieces[cur].color;
-//		for (unsigned int i = 2; i < columns-1; i++) {
-//			cur++;
-//			if (game_pieces[cur].color != color|| game_pieces[cur].color==piece_color::noColor) {
-//				return return_values::piecesNotMatch;
-//			}
-//		}
-//		//O=0  X=1 and noColor=-2, not match=5
-//		return color;
-//	}
-//
-//	int TicTacToeGame::checkWinColumns(unsigned int column) {
-//		unsigned int cur = column+rows;
-//		int color = game_pieces[cur].color;
-//		for (unsigned int i = 2; i < rows-1; i++) {
-//			cur += rows;
-//			if (game_pieces[cur].color != color) {
-//				return return_values::piecesNotMatch;
-//			}
-//		}
-//		//X=0  O=1 and noColor=-2, not match=5
-//		return color;
-//	}
-//
-//	int TicTacToeGame::checkWinDiagonals(unsigned int diagonals) {
-//		//diagonals : 
-//		//0: from left top to right bottom,check 6,12,18; 
-//		//1:left bottom to right top, check 8,12,16;
-//
-//		if (diagonals == 0) {
-//			unsigned int loc = columns + 1;
-//			int color = game_pieces[loc].color;
-//			for (; loc < piecesNum - columns; loc = loc + columns + 1) {
-//				if (game_pieces[loc].color != color) {
-//					return return_values::piecesNotMatch;
-//				}
-//			}
-//			return color;
-//		}else{
-//			unsigned int loc = columns*2 -2;
-//			int color = game_pieces[loc].color;
-//			for (; loc < piecesNum - columns; loc = loc + columns - 1) {
-//				if (game_pieces[loc].color != color) {
-//					return return_values::piecesNotMatch;
-//				}
-//			}
-//			return color;
-//		}
-//	}
+
 //
 //
 //	void TicTacToeGame::findIndex(unsigned int i, unsigned int& x, unsigned int& y) {

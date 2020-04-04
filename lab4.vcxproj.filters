@@ -35,5 +35,8 @@
     <ClInclude Include="tic-tac-toe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="gamePieces.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

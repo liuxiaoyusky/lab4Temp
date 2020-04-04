@@ -14,3 +14,5 @@
 #include <iostream>
 #include"tic-tac-toe.h"
 using namespace std;
+
+int changeVec(vector <unsigned int> &vec);
